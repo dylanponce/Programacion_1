@@ -20,10 +20,22 @@ public class Main {
 			//Point p1=new Point(10,4);
 			//System.out.println(Objetos.estaDentro(p1,c));
 		//Ejercicio 5
-		Point p1=new Point(10,5);
-		Point p2=new Point(20,15);
-		System.out.println(Objetos.puntoMedio(p1, p2));
+			//Point p1=new Point(10,5);
+			//Point p2=new Point(20,15);
+			//System.out.println(Objetos.puntoMedio(p1, p2));
+		//Ejercicio 6
 		
+		//Ejercicio 7
+			Rectangle r1=new Rectangle(5, 5, 5, 5);//mas chico
+			Rectangle r2=new Rectangle(0, 0, 10, 10);//El mas grande
+			System.out.println(Objetos.estaContenido(r1, r2));
+			
+			
+			
+		//Clase Fecha
+			Fecha f1=new Fecha(7,4,2025);
+			f1.imprimir();//No hace falta llamar a la otra proyecto java
+			System.out.println(f1);
 	}
 
 }

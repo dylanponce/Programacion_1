@@ -20,60 +20,51 @@ public class Objetos {
 	 }
 	 //Ejercicio 4
 	 public static boolean estaDentro(Point p, Rectangle r) {
-		 if (p.x >= r.x && p.x <= (r.x + r.width) &&
-		p.y <= r.y && p.y >= (r.y - r.height)) {
-			 return true;
-		 }
-		 return false;
-	 }
+		    return p.x >= r.x &&
+		           p.x <= r.x + r.width &&
+		           p.y >= r.y &&
+		           p.y <= r.y + r.height;
+		}
 	 //Ejercicio 5
 	 public static Point puntoMedio(Point p1, Point p2) {
 		 Point puntual = new Point ((p1.x+p2.x)/2,(p1.y+p2.y)/2);
 		 return puntual;
 	 }
 	 //Ejercicio 6
-	 public static Rectangle encuadrar(Rectangle r1, Rectangle r2) {
-		 int x1, y1, x2, y2;
-
-		// Comparar para encontrar el menor valor de x
-		if (r1.x < r2.x) {
-		    x1 = r1.x;
-		} else {
-		    x1 = r2.x;
+	 public static Rectangle encuadrar(Rectangle r1, Rectangle r2) {//Se puede usar Math.min y max
+	        int xMin = Math.min(r1.x, r2.x);
+	        int yMin = Math.min(r1.y, r2.y);
+	        int xMax = Math.max(r1.x + r1.width, r2.x + r2.width);
+	        int yMax = Math.max(r1.y + r1.height, r2.y + r2.height);
+	        // Crea el nuevo rectángulo
+	        return new Rectangle(xMin, yMin, xMax - xMin, yMax - yMin);
+	    }
+	 //Ejercicio 7
+	 public static boolean estaContenido(Rectangle r1, Rectangle r2) {//Idea principal
+		    return r1.x >= r2.x &&
+		           r1.y >= r2.y &&
+		           r1.x + r1.width <= r2.x + r2.width &&
+		           r1.y + r1.height <= r2.y + r2.height;
 		}
-		// Comparar para encontrar el menor valor de y
-		if (r1.y < r2.y) {
-		    y1 = r1.y;
-		} else {
-		    y1 = r2.y;
+	 //Ejercicio 7 v2
+	 public static boolean estaContenidov2(Rectangle r1, Rectangle r2) {
+		    Point p1 = new Point(r1.x, r1.y); // esquina superior izquierda
+		    Point p2 = new Point(r1.x + r1.width, r1.y + r1.height); // esquina inferior derecha
+		    return estaDentro(p1, r2) && estaDentro(p2, r2);
 		}
-		// Comparar para encontrar el mayor límite derecho
-		if (r1.x + r1.width > r2.x + r2.width) {
-		    x2 = r1.x + r1.width;
-		} else {
-		    x2 = r2.x + r2.width;
-		}
-		// Comparar para encontrar el mayor límite inferior
-		if (r1.y + r1.height > r2.y + r2.height) {
-		    y2 = r1.y + r1.height;
-		} else {
-		    y2 = r2.y + r2.height;
-		}
-
-		// Calcular el ancho y la altura del nuevo rectángulo
-		int newWidth = x2 - x1;
-		int newHeight = y2 - y1;
-		
-		Rectangle resultado = new Rectangle(x1, y1, newWidth, newHeight);
-		return resultado;
-	 }
-	 //7. boolean estaContenido(Rectangle r1, Rectangle r2)
-	 //El método debe indicar si el rectangulo r1 está contenido completamente dentro del rectángulo r2.
 
 	 //8. (dificil!)
-	 //Rectangle interseccion(Rectangle r1, Rectangle r2)
-	 //El método debe devolver el rectángulo contenido en ambos rectángulos r1 y r2. En caso de que no se intersequen debe devolver null.
-
+	 public static Rectangle interseccion(Rectangle r1, Rectangle r2) {
+		 int xIzq = Math.max(r1.x, r2.x);
+		 int yArr = Math.max(r1.y, r2.y);
+		 int xDer = Math.min(r1.x + r1.width, r2.x + r2.width);
+		 int yAba = Math.min(r1.y + r1.height, r2.y + r2.height);
+		 
+		 if (xIzq >= xDer || yArr >= yAba) {
+		        return null;
+		    }
+		return new Rectangle(xIzq, yArr, xDer - xIzq, yAba - yArr);
+	 }
 }
 
 
