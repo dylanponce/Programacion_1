@@ -40,6 +40,22 @@ public class Main {
 		//Fecha
 		//Ejercicio 1
 			//System.out.println(Fecha.diaDelMes(2, 2025));
+		
+		
+		
+		//Pixel
+		Pixel p = new Pixel(3,4,5);
+		System.out.println(p.esValida());
+		
+		//Microondas
+		Microondas m = new Microondas(false, false, 0);
+		System.out.println(m.esValida());
+		
+		//Cuenta
+		double[]cuenta= {100,-20,120,-50};
+		Cuenta c = new Cuenta(cuenta,150,false);
+		System.out.println(c.esValida());
+		
 	}
 
 }
