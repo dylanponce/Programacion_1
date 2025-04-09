@@ -26,16 +26,20 @@ public class Main {
 		//Ejercicio 6
 		
 		//Ejercicio 7
-			Rectangle r1=new Rectangle(5, 5, 5, 5);//mas chico
-			Rectangle r2=new Rectangle(0, 0, 10, 10);//El mas grande
-			System.out.println(Objetos.estaContenido(r1, r2));
-			
+			//Rectangle r1=new Rectangle(5, 5, 5, 5);//mas chico
+			//Rectangle r2=new Rectangle(0, 0, 10, 10);//El mas grande
+			//System.out.println(Objetos.estaContenido(r1, r2));
+		//Ejercicio 8
 			
 			
 		//Clase Fecha
-			Fecha f1=new Fecha(7,4,2025);
-			f1.imprimir();//No hace falta llamar a la otra proyecto java
-			System.out.println(f1);
+			//Fecha f1=new Fecha(7,4,2025);
+			//f1.imprimir();//No hace falta llamar a la otra proyecto java
+			//System.out.println(f1);
+		
+		//Fecha
+		//Ejercicio 1
+			//System.out.println(Fecha.diaDelMes(2, 2025));
 	}
 
 }
